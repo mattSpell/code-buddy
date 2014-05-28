@@ -1,0 +1,77 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title= title
+    link(href='/css/normalize.css', rel='stylesheet')
+    link(href='/css/buttons.css', rel='stylesheet')
+    //- link(href='//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css', rel='stylesheet')
+    link(href='/less/app.css', rel='stylesheet')
+  body
+    header
+      #header-content
+        #logo
+          if(teacher)
+            a(href='/teacher/dashboard')
+              img(src='/img/logo.svg')
+          if(student)
+            a(href='/student/dashboard')
+              img(src='/img/logo.svg')
+
+        #nav
+          ul
+            if(teacher)
+              li
+                a(href='/teacher/dashboard') DASHBOARD
+            if(student)
+              li
+                a(href='/student/dashboard') DASHBOARD
+
+            if(teacher)
+              li
+                a(href='/teacher/courses/all') COURSES
+            if(student)
+              li
+                a(href='/student/courses/all') COURSES
+
+        //- if(teacher)
+        //-   form(method='POST', action='/teacher/dashboard', enctype='multipart/form-data')
+        //-     input#teacher-avatar(type='file', name='avatar')
+        //-     button Add Avatar
+        //-
+        //- if(student)
+        //-   form(method='POST', action='/student/dashboard', enctype='multipart/form-data')
+        //-     input#student-avatar(type='file', name='avatar')
+        //-     button Add Avatar
+
+
+
+        #user
+          a#logout(href='#') LOGOUT
+          #username
+            if(teacher)
+              p#user= teacher.name
+              //- if(teacher.avatar.photo)
+              //-   img.avatar(src='/img/#{teacher.name}/#{teacher.avatar.photo}')
+
+            if(student)
+              p#user= student.name
+              //- if(student.avatar.photo)
+              //-   img.avatar(src='/img/#{student.name}/#{student.avatar.photo}')
+
+        .clear
+
+    #container
+      block content
+
+    script(src='/js/vendor/jquery-2.1.1.js')
+    script(src='/js/vendor/lodash-2.4.1.js')
+    script(src='/js/vendor/moment-2.6.0.js')
+    script(src='/js/vendor/buttons.js')
+    script(src='/js/vendor/traceur.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/es5/main.js')
+    script(src='/js/es6/compiled/main.js')
+    script(src='/js/es6/compiled/sockets.js')
+
+    block scripts

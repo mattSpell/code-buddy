@@ -1,0 +1,22 @@
+extends ../shared/template
+
+block content
+  h2.library-title Course Library
+  h1 Courses
+  #courses
+    if(teacher)
+      each course in courses
+        .course(data-id='#{course._id}')
+          a.showcourse(href='/course/#{course._id}/show')
+            h2= course.title
+            p= course.description
+
+    if(student)
+      each course in courses
+        .course(data-id='#{course._id}')
+          a.showcourse(href='/student/course/#{course._id}/show')
+            h2= course.title
+            p= course.description
+
+block scripts
+  script(src='/js/es6/compiled/courses.js')

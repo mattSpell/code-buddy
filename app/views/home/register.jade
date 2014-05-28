@@ -1,0 +1,30 @@
+extends ../shared/pre-login
+
+block content
+  p New Account
+
+  form#form-register(action='/register', method='post')
+    input(type='text', name='name', placeholder='Name')
+    input(type='email', name='email', placeholder='Email')
+    input(type='password', name='password', placeholder='Password')
+
+    .radio
+      input#student(type='radio', name='type', value='student')
+      label(for='student') Student
+
+    .radio
+      input#teacher(type='radio', name='type', value='teacher')
+      label(for='teacher') Teacher
+
+
+
+    //- div
+    //-   input.radio(type='radio', name='type', value='student')
+    //-   | Student
+    //- div
+    //-   input.radio(type='radio', name='type', value='teacher')
+    //-   | Teacher
+
+    .clear
+    button#register Create Account
+    a.back(href='/') Back

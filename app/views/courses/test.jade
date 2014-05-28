@@ -1,0 +1,24 @@
+extends ../shared/template
+
+block content
+  h2= course.title
+
+  if(teacher)
+    form(action='/course/#{course._id}/test', method='post')
+      each problem in course.test
+        p.question= problem.question
+        each choice in problem.choices
+          input.choice(type='radio', name='#{problem.question}', value='#{choice}')
+          | #{choice}
+          .clear
+      button#results Submit Answers
+
+  if(student)
+    form(action='/student/course/#{course._id}/test', method='post')
+      each problem in course.test
+        p.question= problem.question
+        each choice in problem.choices
+          input.choice(type='radio', name='#{problem.question}', value='#{choice}')
+          | #{choice}
+          .clear
+      button#results Submit Answers

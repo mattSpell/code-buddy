@@ -1,0 +1,24 @@
+.left
+  h3.test-title TEST QUESTIONS
+
+button#addquestion Add Question
+
+.clear
+
+form#test(action='/course/#{course._id}/addTest', method='post')
+  .question
+    .left
+      textarea(name='question', placeholder='Type guestion here')
+    .left
+      p Solution
+      input(type='text', name='solution', placeholder='Correct answer')
+      p Alternate Choices
+      input(type='text', name='wronganswer', placeholder='Alt Answer 1')
+      input(type='text', name='wronganswer', placeholder='Alt Answer 2')
+      input(type='text', name='wronganswer', placeholder='Alt Answer 3')
+    .clear
+
+button#savetest Save Test
+
+block scripts
+  script(src='/js/es6/compiled/lessons.js')

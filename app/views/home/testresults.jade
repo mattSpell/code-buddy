@@ -1,0 +1,27 @@
+extends ../shared/template
+
+block content
+  if(results.grade > 60)
+    h2 Congratulations! You Passed #{course.title}
+
+  if(results.grade < 60)
+    h2 YOU FAILED!
+
+  h1 #{results.grade}%
+  h3 Correct: #{results.numRight}
+  h3 Wrong: #{results.numWrong}
+
+  if(teacher)
+    a.dash(href='/teacher/dashboard') DASHBOARD
+
+  if(student)
+    a.dash(href='/student/dashboard') DASHBOARD
+
+  .clear
+  if(results.grade < 60)
+    if(teacher)
+      form(action='/course/#{course._id}/test', method='get')
+        button#retake Retake Test
+    if(student)
+      form(action='/student/course/#{course._id}/test', method='get')
+        button#retake Retake Test
