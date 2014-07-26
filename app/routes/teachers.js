@@ -4,8 +4,6 @@ var traceur = require('traceur');
 var Teacher = traceur.require(__dirname + '/../models/teacher.js');
 var Course = traceur.require(__dirname + '/../models/course.js');
 
-// var Student = traceur.require(__dirname + '/../models/student.js');
-
 exports.index = (req, res)=>{
   res.render('home/index', {title: 'StudyBuddy: Home'});
 };
@@ -15,7 +13,6 @@ exports.new = (req, res)=>{
 };
 
 exports.login = (req, res)=>{
-
     var teacher = new Teacher(req.body);
     teacher.login(t=>{
       if(t){
@@ -27,7 +24,6 @@ exports.login = (req, res)=>{
       }
     });
 };
-
 
 exports.dashboard = (req, res)=>{
   Course.findAll(courses=>{

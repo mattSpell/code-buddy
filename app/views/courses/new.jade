@@ -2,7 +2,7 @@ extends ../shared/template
 
 block content
     #course(data-id='#{course._id}')
-      
+
       h2= course.title
       p= course.description
 
@@ -82,7 +82,6 @@ block content
               button.md-close#savelesson Save Lesson
 
       .md-overlay
-
 
 block scripts
   link(href='/css/quill.snow.css', rel='stylesheet')

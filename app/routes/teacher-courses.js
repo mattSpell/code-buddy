@@ -3,24 +3,6 @@
 var traceur = require('traceur');
 var Course = traceur.require(__dirname + '/../models/course.js');
 var Teacher = traceur.require(__dirname + '/../models/teacher.js');
-var multiparty = require('multiparty');
-
-
-
-exports.avatar = (req, res)=>{
-  var form = new multiparty.Form();
-
-  Teacher.findById(req.session.teacherId, teacher=>{
-    Course.findAll(courses=>{
-      teacher.addAvatar(form, req, ()=>{
-        teacher.save(()=>{
-          res.render('teachers/dashboard', {teacher: teacher, courses: courses});
-        });
-      });
-    });
-  });
-};
-
 
 exports.new = (req, res)=>{
   var course = new Course(req.body);
@@ -35,7 +17,6 @@ exports.addLesson = (req, res)=>{
   Course.findById(req.params.courseId, course=>{
     course.addLesson(req.body, ()=>{
       course.save(()=>{
-        console.log(course);
         res.render('courses/lesson-list', {course:course});
       });
     });

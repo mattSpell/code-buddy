@@ -17,8 +17,6 @@ exports.avatar = (req, res)=>{
   });
 };
 
-
-
 exports.show = (req, res)=>{
   Course.findById(req.params.courseId, course=>{
     Student.findById(req.session.studentId, student=>{

@@ -12,7 +12,6 @@
     $('#addlesson').click(showLessonForm);
     $('#savelesson').click(saveLesson);
     loadEditor();
-     //$( '#accordion' ).accordion();
   }
 
   function showLessonForm(){
