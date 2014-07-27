@@ -4,7 +4,6 @@ var students = global.nss.db.collection('students');
 var Mongo = require('mongodb');
 var _ = require('lodash');
 var bcrypt = require('bcrypt');
-var fs = require('fs');
 
 class Student{
   constructor(obj){
@@ -65,5 +64,6 @@ class Student{
       }
     });
   }
+}
 
 module.exports = Student;

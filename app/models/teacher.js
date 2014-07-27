@@ -3,7 +3,6 @@
 var teachers = global.nss.db.collection('teachers');
 var Mongo = require('mongodb');
 var bcrypt = require('bcrypt');
-var fs = require('fs');
 var _ = require('lodash');
 
 class Teacher{
