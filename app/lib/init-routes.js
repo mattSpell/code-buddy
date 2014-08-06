@@ -35,9 +35,6 @@ function load(app, fn){
   app.get('/teacher/dashboard', dbg, teachers.dashboard);
   app.get('/student/dashboard', dbg, students.dashboard);
 
-  // app.post('/teacher/dashboard', dbg, teacherCourses.avatar);
-  // app.post('/student/dashboard', dbg, studentCourses.avatar);
-
   app.post('/course/new', dbg, teacherCourses.new);
   app.post('/course/:courseId/addLesson', dbg, teacherCourses.addLesson);
 
