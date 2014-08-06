@@ -8,5 +8,7 @@ This is a Node/Mongo app that uses:
 - Traceur
 - Jade
 - Less
+- jQuery
+- Quill API
 
 Create a teacher or student account. Teachers can create courses, lessons and tests. Students can take the tests and get their score.
